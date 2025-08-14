@@ -9,10 +9,16 @@ dotenv.config();
 const app = express();
 connectDB();
 
-app.use(cors());
+// Explicit CORS for Vercel frontend
+app.use(cors({
+  origin: 'https://plantcure.vercel.app',
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
+
 app.use(express.json());
 
-app.use('/api/diseases', diseaseRoutes); //  Mounts route
+app.use('/api/diseases', diseaseRoutes); // Mounts route
 
 const PORT = process.env.PORT || 6000;
 app.listen(PORT, () => {
