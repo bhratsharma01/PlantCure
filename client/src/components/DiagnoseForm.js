@@ -12,8 +12,7 @@ export default function DiagnoseForm() {
   useEffect(() => {
     const fetchDiseases = async () => {
       try {
-        const res = await axios.get("https://plantcure-6gpt.onrender.com/api/plants");
-;
+        const res = await axios.get('https://plantcure-6gpt.onrender.com/api/diseases/all');
         const grouped = {};
 
         res.data.forEach(d => {
