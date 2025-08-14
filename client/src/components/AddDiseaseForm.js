@@ -25,7 +25,7 @@ export default function AddDiseaseForm() {
     setErrorMsg('');
 
     try {
-      const response = await axios.post('http://localhost:8000/api/diseases/add', {
+      const response = await axios.post('https://plantcure-6gpt.onrender.com/api/diseases/add', {
         ...formData,
         symptoms: formData.symptoms.split(',').map(s => s.trim()),
         homeRemedies: formData.homeRemedies.split(',').map(r => r.trim()),
